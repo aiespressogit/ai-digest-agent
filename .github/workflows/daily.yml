@@ -1,0 +1,39 @@
+# Daily fetcher for Agent 1.
+# Runs automatically once a day, and can be triggered manually from the Actions tab.
+
+name: Daily fetch
+
+on:
+  # Manual trigger: gives us a "Run workflow" button in the Actions tab.
+  # Critical during development.
+  workflow_dispatch:
+  
+  # Scheduled trigger: runs daily at 06:30 UTC.
+  # arXiv typically updates around 00:00 UTC; we wait a few hours for the feed to settle.
+  schedule:
+    - cron: '30 6 * * *'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Pull the repo's code onto the runner.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # Step 2: Install Python.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # Step 3: Install the libraries listed in requirements.txt.
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      # Step 4: Run the fetcher.
+      - name: Run fetcher
+        run: python fetcher.py
