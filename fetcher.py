@@ -14,6 +14,17 @@ from datetime import datetime
 # The three arXiv categories we monitor.
 ARXIV_CATEGORIES = ["cs.AI", "cs.LG", "cs.CL"]
 
+def _clean_arxiv_summary(summary):
+    """
+    arXiv RSS descriptions start with metadata like:
+      'arXiv:2604.26091v1 Announce Type: new \nAbstract: <real abstract>'
+    Strip everything before 'Abstract:' so 'text' contains just the abstract.
+    Falls back to the raw summary if the marker isn't found.
+    """
+    marker = "Abstract:"
+    if marker in summary:
+        return summary.split(marker, 1)[1].strip()
+    return summary.strip()
 
 def fetch_arxiv(category):
     """Fetch new submissions from one arXiv category."""
@@ -48,7 +59,7 @@ def fetch_arxiv(category):
             "url": entry.link,
             "published_at": entry.get("published", ""),
             "fetched_at": datetime.utcnow().isoformat(),
-            "text": entry.summary,
+            "text": _clean_arxiv_summary(entry.summary),
             "raw": dict(entry),
             
             # Filter fields, populated later.
