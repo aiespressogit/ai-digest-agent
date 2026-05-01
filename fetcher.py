@@ -9,6 +9,7 @@ This is the fetcher only — no filtering, no LLM. That comes later.
 
 import feedparser
 import requests
+from bs4 import BeautifulSoup
 from datetime import datetime
 
 # The three arXiv categories we monitor.
@@ -25,6 +26,77 @@ def _clean_arxiv_summary(summary):
     if marker in summary:
         return summary.split(marker, 1)[1].strip()
     return summary.strip()
+
+def _html_to_text(html, max_chars=2000):
+    """
+    Strip HTML to plain text and truncate to a preview length.
+    
+    Substack post bodies are full essays; the filter only needs the opening
+    to decide relevance. Truncating saves tokens on every filter call.
+    """
+    if not html:
+        return ""
+    
+    # Parse the HTML and extract plain text.
+    # get_text(separator=" ") joins block elements with spaces so paragraphs
+    # don't run together as one wall of text.
+    soup = BeautifulSoup(html, "html.parser")
+    text = soup.get_text(separator=" ", strip=True)
+    
+    # Truncate. ~2000 chars is roughly 500 tokens — plenty for relevance classification.
+    if len(text) > max_chars:
+        text = text[:max_chars] + "..."
+    
+    return text
+
+def fetch_interconnects():
+    """Fetch recent posts from Interconnects (Nathan Lambert's Substack)."""
+    url = "https://www.interconnects.ai/feed"
+    
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    
+    feed = feedparser.parse(response.text)
+    
+    items = []
+    for entry in feed.entries:
+        # Substack item identifier — the post URL is stable and unique.
+        # We hash-friendly it by stripping the protocol and trailing slash.
+        post_url = entry.link
+        post_id = post_url.replace("https://", "").replace("http://", "").rstrip("/")
+        
+        # Substack puts the full post HTML in 'content' (richer) or 'summary' (shorter).
+        # Prefer content if present.
+        if hasattr(entry, "content") and entry.content:
+            html_body = entry.content[0].value
+        else:
+            html_body = entry.get("summary", "")
+        
+        # Author is usually a single string for Substack.
+        author = entry.get("author", "Nathan Lambert")
+        authors = [author.strip()] if author else []
+        
+        item = {
+            "id": post_id,
+            "source": "interconnects",
+            "title": entry.title,
+            "authors": authors,
+            "url": post_url,
+            "published_at": entry.get("published", ""),
+            "fetched_at": datetime.utcnow().isoformat(),
+            "text": _html_to_text(html_body),
+            "raw": dict(entry),
+            
+            # Filter fields, populated later.
+            "relevant": None,
+            "relevance_score": None,
+            "relevance_why": None,
+            "depth_score": None,
+            "depth_why": None,
+        }
+        items.append(item)
+    
+    return items
 
 def fetch_hf_daily():
     """Fetch papers from Hugging Face's daily papers feed."""
@@ -155,10 +227,14 @@ if __name__ == "__main__":
     hf_items = fetch_hf_daily()
     print(f"  Total HF items: {len(hf_items)}")
     
-    # Combine all items.
-    all_items = arxiv_items + hf_items
+    print("\nFetching Interconnects...")
+    ic_items = fetch_interconnects()
+    print(f"  Total Interconnects items: {len(ic_items)}")
     
-    # Deduplicate across sources by id. arXiv and HF can point to the same paper.
+    # Combine.
+    all_items = arxiv_items + hf_items + ic_items
+    
+    # Deduplicate by id.
     seen_ids = set()
     deduped = []
     for item in all_items:
@@ -168,18 +244,15 @@ if __name__ == "__main__":
     
     print(f"\nCombined unique items: {len(deduped)}")
     
-    # Show one sample from each source so we can confirm both are working.
-    print("\n--- Sample arXiv item ---")
-    for item in deduped:
-        if item["source"] == "arxiv":
-            print(f"[{item['id']}] {item['title']}")
-            print(f"  Abstract preview: {item['text'][:200]}...")
-            break
-    
-    print("\n--- Sample HF item ---")
-    for item in deduped:
-        if item["source"] == "hf_papers":
-            print(f"[{item['id']}] {item['title']}")
-            print(f"  Upvotes: {item['upvotes']}")
+    # Show one sample from each source.
+    for source_name in ["arxiv", "hf_papers", "interconnects"]:
+        print(f"\n--- Sample {source_name} item ---")
+        for item in deduped:
+            if item["source"] == source_name:
+                print(f"[{item['id']}] {item['title']}")
+                print(f"  Text preview: {item['text'][:250]}...")
+                break
+        else:
+            print(f"  (no items from {source_name} this run)")
             print(f"  Abstract preview: {item['text'][:200]}...")
             break
