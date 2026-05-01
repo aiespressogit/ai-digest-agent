@@ -12,24 +12,24 @@ us most of that visibility back.
 """
 
 import json
-import os
 from anthropic import Anthropic
 
 # Pinned snapshot. Use the snapshot ID, not the alias "claude-haiku-4-5".
 # Snapshots give reproducible behavior; aliases drift when Anthropic updates the tier.
 # Check https://docs.claude.com/en/docs/about-claude/models/overview before swapping.
 MODEL = "claude-haiku-4-5-20251001"
-MODEL = "claude-haiku-4-5-20251001"
 
 # Initialize once. Reads ANTHROPIC_API_KEY from environment automatically.
 _client = Anthropic()
 
-# Cost-cap parameters. Hard-stops the filter run when limits are hit.
-MAX_CALLS_PER_RUN = 200          # at ~$0.0013/call, ~$0.26 per run
+# --- Cost-cap parameters ----------------------------------------------------
+# Hard-stops the filter run when limits are hit. Defense in depth alongside
+# the provider-level cap set in the Anthropic Console.
+MAX_CALLS_PER_RUN = 200          # at ~$0.0013/call, ~$0.26 per run worst case
 HAIKU_INPUT_PER_MTOK = 1.00      # USD per million input tokens
 HAIKU_OUTPUT_PER_MTOK = 5.00     # USD per million output tokens
 
-# Module-level counters reset each Python invocation.
+# Module-level counters reset each Python invocation (each workflow run).
 _call_count = 0
 _total_input_tokens = 0
 _total_output_tokens = 0
@@ -47,8 +47,10 @@ def _budget_exceeded():
     """True when we should stop calling the API."""
     return _call_count >= MAX_CALLS_PER_RUN
 
-# The criterion, locked earlier. Lives here as a single string so changes
-# to the criterion are tracked in version control alongside the code.
+
+# --- Criterion --------------------------------------------------------------
+# Locked earlier. Lives here as a single string so changes to the criterion
+# are tracked in version control alongside the code.
 CRITERION = """\
 You are filtering items for a learner tracking the frontier of AI research, \
 specifically work on LLM-based agents and the model capabilities that enable them.
@@ -80,9 +82,10 @@ fundamentally about LLM-based reasoning."""
 def _build_prompt(item):
     """
     Build the per-item user message.
-    
-    Keeps the criterion fixed (system) and the per-item content compact (user).
-    This positions the criterion for prompt caching later if we want it.
+
+    Keeps the criterion fixed (as system prompt) and the per-item content
+    compact (as user message). This positions the criterion for prompt
+    caching later if we want it.
     """
     return f"""Classify the following item.
 
@@ -113,8 +116,15 @@ Return ONLY the JSON object. No prose before or after."""
 
 
 def classify_item(item):
+    """
+    Send one item to the LLM, return the item with classification fields populated.
+
+    Defensive: catches API errors, malformed JSON, and missing fields.
+    On any failure, returns the item with relevance=None and an error in
+    relevance_why so it's visible downstream.
+    """
     global _call_count, _total_input_tokens, _total_output_tokens
-    
+
     # Hard stop if we're past the per-run cap.
     if _budget_exceeded():
         result = dict(item)
@@ -125,7 +135,7 @@ def classify_item(item):
         result["relevant"] = False
         result["filter_error"] = "budget_cap"
         return result
-    
+
     try:
         response = _client.messages.create(
             model=MODEL,
@@ -133,45 +143,29 @@ def classify_item(item):
             system=CRITERION,
             messages=[{"role": "user", "content": _build_prompt(item)}],
         )
-        
-        # Track cost.
+
+        # Track cost on every successful call.
         _call_count += 1
         _total_input_tokens += response.usage.input_tokens
         _total_output_tokens += response.usage.output_tokens
-        
-        # ... rest of the function unchanged
-    """
-    Send one item to the LLM, return the item with classification fields populated.
-    
-    Defensive: catches API errors, malformed JSON, and missing fields.
-    On any failure, returns the item with relevance=None and an error in
-    relevance_why so it's visible downstream.
-    """
-    try:
-        response = _client.messages.create(
-            model=MODEL,
-            max_tokens=400,           # ~200 tokens for the JSON, with headroom
-            system=CRITERION,
-            messages=[{"role": "user", "content": _build_prompt(item)}],
-        )
-        
+
         # Response content is a list of blocks; we expect one text block.
         raw_text = response.content[0].text.strip()
-        
+
         # Defensive: model may include surrounding prose despite "JSON only".
         # Find the first '{' and last '}' to extract the JSON.
         json_start = raw_text.find("{")
         json_end = raw_text.rfind("}") + 1
         if json_start == -1 or json_end <= json_start:
             raise ValueError(f"No JSON object found in response: {raw_text[:200]}")
-        
+
         parsed = json.loads(raw_text[json_start:json_end])
-        
+
         # Validate the shape. Missing keys would silently break downstream.
         for key in ("relevance", "relevance_why", "depth", "depth_why"):
             if key not in parsed:
                 raise ValueError(f"Missing key '{key}' in response: {parsed}")
-        
+
         # Attach to a copy of the item so we don't mutate the input.
         result = dict(item)
         result["relevance_score"] = int(parsed["relevance"])
@@ -181,7 +175,7 @@ def classify_item(item):
         result["relevant"] = result["relevance_score"] >= 3
         result["filter_error"] = None
         return result
-        
+
     except Exception as e:
         # Don't crash the whole batch on one bad call. Mark and move on.
         result = dict(item)
@@ -197,7 +191,7 @@ def classify_item(item):
 def classify_items(items, verbose=True):
     """
     Classify a list of items. Sequential — one LLM call per item.
-    
+
     Could be parallelized later (the Anthropic SDK supports async), but
     sequential is simpler to debug and the 300-item case takes ~5 minutes.
     """
@@ -210,17 +204,21 @@ def classify_items(items, verbose=True):
         if verbose and result["filter_error"] is None:
             print(f"      relevance={result['relevance_score']}, depth={result['depth_score']}")
         elif verbose:
-            print(f"      ERROR: {result['filter_error'][:100]}")
+            print(f"      ERROR: {result['filter_error'][:100] if result['filter_error'] else 'unknown'}")
+
     print(f"\n  --- Filter run summary ---")
     print(f"  API calls made: {_call_count}")
     print(f"  Input tokens:   {_total_input_tokens:,}")
     print(f"  Output tokens:  {_total_output_tokens:,}")
     print(f"  Estimated cost: ${_estimated_cost():.4f}")
+
     return results
 
 
-# Self-test: classify three hand-picked items, print the results.
-# We use the three IDs we flagged earlier as good test cases.
+# --- Self-test --------------------------------------------------------------
+# Three hand-picked items: one clear yes, one clear no, one clear yes.
+# Run with: python filter.py
+
 if __name__ == "__main__":
     test_items = [
         {
@@ -242,10 +240,10 @@ if __name__ == "__main__":
             "text": "Forecasting benchmarks produce accuracy leaderboards but little insight into why some forecasters are more accurate than others. We introduce Bench to the Future 2 (BTF-2), 1,417 pastcasting questions designed to evaluate strategic reasoning in LLM-based forecasting agents.",
         },
     ]
-    
+
     print("=== Filter self-test on three items ===\n")
     results = classify_items(test_items)
-    
+
     print("\n=== Results ===")
     for r in results:
         print(f"\n[{r['source']}:{r['id']}] {r['title']}")
