@@ -35,5 +35,5 @@ jobs:
           pip install -r requirements.txt
       
       # Step 4: Run the fetcher.
-      - name: Run fetcher
-        run: python fetcher.py
+      - name: Run checkpoint self-test
+        run: python checkpoint.py
