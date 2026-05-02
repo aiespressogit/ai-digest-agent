@@ -1,10 +1,10 @@
-# AI digest — 2026-05-01
+# AI digest — 2026-05-02
 
 Rolling 7-day window. Generated automatically.
 
 ---
 
-## Read deeply (45 items)
+## Read deeply (63 items)
 
 _High relevance and substantial depth — worth full attention._
 
@@ -32,6 +32,31 @@ _High relevance and substantial depth — worth full attention._
 **Source:** arxiv | **Authors:** Eyon Jang; Damon Falck; Joschka Braun; Nathalie Kirch; Achu Menon; Perusha Moodley; Scott Emmons; Ro...
 **Relevance:** 5/5 — Directly addresses RL-based post-training of LLM agents, exploring a critical failure mode that affects how frontier models can be trained for agentic capabilities and alignment.
 **Depth:** 4/5 — Provides concrete methodology (model organisms, detection/mitigation strategies), empirical results across multiple environments, and mechanistic insight into how capable models reason about resisting training.
+
+### [Step-level Optimization for Efficient Computer-use Agents](https://huggingface.co/papers/2604.27151)
+**Source:** hf_papers | **Authors:** Jinbiao Wei; Kangqi Ni; Yilun Zhao; Guo Gan; Arman Cohan
+**Relevance:** 5/5 — Directly addresses LLM-based computer-use agents, a core frontier application, with concrete methodology for improving agent efficiency and reliability.
+**Depth:** 4/5 — Provides substantial technical methodology (event-driven cascade, Stuck Monitor, Milestone Monitor) with clear problem analysis (progress stalls, semantic drift) and modular deployment approach, though specific benchmark results are not detailed in the abstract.
+
+### [Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflows](https://huggingface.co/papers/2604.28139)
+**Source:** hf_papers | **Authors:** Chenxin Li; Zhengyang Tang; Huangxin Lin; Yunlong Lin; Shijue Huang; Shengyuan Liu; Bowen Ye; Rang L...
+**Relevance:** 5/5 — Directly addresses LLM agent evaluation methodology and benchmark design for real-world workflow automation, a frontier capability that constrains what agents can achieve.
+**Depth:** 4/5 — Provides concrete evaluation methodology (execution traces, audit logs, deterministic checks, structured LLM judging), specific results across 13 frontier models and 105 tasks, and structured failure analysis revealing persistent bottlenecks in business workflows.
+
+### [Synthetic Computers at Scale for Long-Horizon Productivity Simulation](https://huggingface.co/papers/2604.28181)
+**Source:** hf_papers | **Authors:** Tao Ge; Baolin Peng; Hao Cheng; Jianfeng Gao
+**Relevance:** 5/5 — Directly addresses long-horizon LLM-based agent capabilities through a scalable methodology for synthetic environment creation and at-scale agentic learning, which is frontier work on model training and evaluation for productivity agents.
+**Depth:** 4/5 — Provides clear methodology (synthetic computer generation, multi-agent simulation architecture, experiential learning signals), concrete results (1,000 synthetic computers, 2,000+ turns per simulation, validated performance improvements), and explicit motivation (scaling synthetic data for long-horizon agent tasks at billion scale).
+
+### [Operating-Layer Controls for Onchain Language-Model Agents Under Real Capital](https://huggingface.co/papers/2604.26091)
+**Source:** hf_papers | **Authors:** T. J. Barton; Chris Constantakis; Patti Hauseman; Annie Mous; Alaska Hoffman; Brian Bergeron; Hunter...
+**Relevance:** 5/5 — Directly addresses LLM-based agent reliability and deployment at scale, with focus on operating-layer mechanisms (prompt compilation, validation, memory, observability) that enable agents to function under real capital constraints.
+**Depth:** 4/5 — Provides concrete methodology for agent reliability (typed controls, policy validation, execution guards), extensive empirical results from 21-day deployment (7.5M invocations, 300K onchain actions), and explicit failure modes and mitigations (fabricated rules reduced 57%→3%, fee paralysis addressed, capital deployment 42.9%→78.0%).
+
+### [The Last Harness You'll Ever Build](https://huggingface.co/papers/2604.21003)
+**Source:** hf_papers | **Authors:** Haebin Seong; Li Yin; Haoran Zhang
+**Relevance:** 5/5 — Directly addresses core LLM-agent challenges: automated harness engineering, multi-level optimization loops (Harness and Meta-Evolution), and enabling rapid adaptation of agents to novel domains without manual engineering.
+**Depth:** 4/5 — Presents a formalized two-level framework with explicit algorithmic correspondence to meta-learning, concrete mechanisms (Worker, Evaluator, Evolution agents), and addresses the practical bottleneck of task-specific harness engineering through systematic automation.
 
 ### [Web2BigTable: A Bi-Level Multi-Agent LLM System for Internet-Scale Information Search and Extraction](https://arxiv.org/abs/2604.27221)
 **Source:** arxiv | **Authors:** Yuxuan Huang; Yihang Chen; Zhiyuan He; Yuxiang Chen; Ka Yiu Lee; Huichi Zhou; Weilin Luo; Meng Fang;...
@@ -208,6 +233,56 @@ _High relevance and substantial depth — worth full attention._
 **Relevance:** 4/5 — Directly addresses memory management and retrieval in LLM-based coding agents, a core capability for agent performance and safety.
 **Depth:** 4/5 — Presents clear methodology (risk-sensitive contextual bandit formulation with 16-feature state representation) and concrete empirical results (62.5% success, 0.0% false-positive rate) with explicit safety constraints addressing prior retrieval limitations.
 
+### [Compliance versus Sensibility: On the Reasoning Controllability in Large Language Models](https://huggingface.co/papers/2604.27251)
+**Source:** hf_papers | **Authors:** Xingwei Tan; Marco Valentino; Mahmud Elahi Akhter; Yuxiang Zhou; Maria Liakata; Nikolaos Aletras
+**Relevance:** 4/5 — Directly addresses reasoning controllability and mechanistic steering of LLMs, which are foundational capabilities for building reliable and controllable LLM-based agents.
+**Depth:** 4/5 — Provides systematic methodology for investigating reasoning conflicts, concrete empirical results on how models encode reasoning types, and demonstrates practical activation-level steering techniques with quantified improvements.
+
+### [Length Value Model: Scalable Value Pretraining for Token-Level Length Modeling](https://huggingface.co/papers/2604.27039)
+**Source:** hf_papers | **Authors:** Zhen Zhang; Changyi Yang; Zijie Xia; Zhen Yang; Chengzhi Liu; Zhaotiao Weng; Yepeng Liu; Haobo Chen;...
+**Relevance:** 4/5 — Length modeling via value estimation directly improves agent reasoning performance and enables inference-time control critical for agentic planning and resource-constrained deployment.
+**Depth:** 4/5 — Strong methodology grounding length as a value estimation problem with dense, scalable supervision, concrete benchmarks (64.8 on LIFEBench vs 30.9 baseline, 63% GSM8K accuracy at token budget), and interpretable token-level dynamics.
+
+### [Co-Evolving Policy Distillation](https://huggingface.co/papers/2604.27083)
+**Source:** hf_papers | **Authors:** Naibin Gu; Chenxu Yang; Qingyi Si; Chuanyu Qin; Dingyu Yao; Peng Fu; Zheng Lin; Weiping Wang; Nan Du...
+**Relevance:** 4/5 — Co-Evolving Policy Distillation directly addresses frontier model training methodology for consolidating multi-modal reasoning capabilities into unified models, a key enabler for capable LLM-based agents.
+**Depth:** 4/5 — The paper provides clear methodology (bidirectional OPD during parallel expert training), concrete experimental validation across text/image/video reasoning, and identifies specific failure modes of prior approaches (inter-capability divergence, behavioral pattern gaps) that motivate the contribution.
+
+### [InteractWeb-Bench: Can Multimodal Agent Escape Blind Execution in Interactive Website Generation?](https://huggingface.co/papers/2604.27419)
+**Source:** hf_papers | **Authors:** Qiyao Wang; Haoran Hu; Longze Chen; Hongbo Wang; Hamid Alinejad-Rokny; Yuan Lin; Min Yang
+**Relevance:** 4/5 — Directly addresses LLM-based agent capabilities in interactive settings, focusing on a critical failure mode (blind execution) and agent design for intent refinement through iterative interaction.
+**Depth:** 4/5 — Introduces systematic methodology (four agent personas, instruction perturbations grounded in defect taxonomies, unified action space with Clarify/Implement/Verify/Submit) and concrete experimental findings exposing frontier MLLM agent limitations in adaptive interaction.
+
+### [The Last Human-Written Paper: Agent-Native Research Artifacts](https://huggingface.co/papers/2604.24658)
+**Source:** hf_papers | **Authors:** Jiachen Liu; Jiaxin Pei; Jintao Huang; Chenglei Si; Ao Qu; Xiangru Tang; Runyu Lu; Lichang Chen; Xia...
+**Relevance:** 4/5 — Directly addresses a frontier capability gap for LLM-based agents—enabling them to understand, reproduce, and extend research—with concrete methodology and benchmarks.
+**Depth:** 4/5 — Proposes a novel protocol (ARA) with three supporting mechanisms, demonstrates clear methodology for agent-oriented research artifacts, and reports substantial empirical gains (93.7% QA accuracy, analysis of agent constraints).
+
+### [Heterogeneous Scientific Foundation Model Collaboration](https://huggingface.co/papers/2604.27351)
+**Source:** hf_papers | **Authors:** Zihao Li; Jiaru Zou; Feihao Fang; Xuying Ning; Mengting Ai; Tianxin Wei; Sirui Chen; Xiyuan Yang; Ji...
+**Relevance:** 4/5 — Directly addresses LLM-based agent architecture and reasoning, specifically how agents can coordinate with specialized domain models through language interfaces.
+**Depth:** 4/5 — Presents clear methodology (language-model-based reasoning interface augmenting domain models), architectural contributions (single-agent, multi-agent, and orchestration variants), and empirical evaluation across multiple scientific domains.
+
+### [Large Language Models Explore by Latent Distilling](https://huggingface.co/papers/2604.24927)
+**Source:** hf_papers | **Authors:** Yuanhao Zeng; Ao Lu; Lufei Li; Zheng Zhang; Yexin Li; Kan Ren
+**Relevance:** 4/5 — Directly addresses test-time scaling and decoding strategies for LLM reasoning, which are core capabilities that enable agent planning and multi-step problem-solving.
+**Depth:** 4/5 — Provides clear methodology (lightweight Distiller for novelty signal via prediction error), concrete empirical results across multiple benchmarks (math, science, code), and demonstrates practical efficiency gains with <5% overhead.
+
+### [GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents](https://huggingface.co/papers/2604.26752)
+**Source:** hf_papers | **Authors:** V Team; Wenyi Hong; Xiaotao Gu; Ziyang Pan; Zhen Yang; Yuting Wang; Yue Wang; Yuanchang Yue; Yu Wang...
+**Relevance:** 4/5 — Directly addresses frontier multimodal LLM-based agents with integrated perception for reasoning, planning, and tool use across heterogeneous modalities.
+**Depth:** 4/5 — Reports concrete methodological contributions spanning model design, multimodal training, RL optimization, tool integration, and framework-based evaluation with performance results on agent tasks.
+
+### [Accelerating RL Post-Training Rollouts via System-Integrated Speculative Decoding](https://huggingface.co/papers/2604.26779)
+**Source:** hf_papers | **Authors:** Hayate Iso; Tiyasa Mitra; Sudipta Mondal; Rasoul Shafipour; Venmugil Elango; Terry Kong; Yuki Huang;...
+**Relevance:** 4/5 — Directly addresses RL post-training of frontier LLMs and rollout generation efficiency, a key systems bottleneck that materially affects agent training capabilities.
+**Depth:** 4/5 — Provides concrete methodology (speculative decoding integration into NeMo-RL with vLLM), empirical results (1.8x throughput at 8B, 2.5x projected at 235B), and addresses real deployment challenges in RL training pipelines.
+
+### [ClawGym: A Scalable Framework for Building Effective Claw Agents](https://huggingface.co/papers/2604.26904)
+**Source:** hf_papers | **Authors:** Fei Bai; Huatong Song; Shuang Sun; Daixuan Cheng; Yike Yang; Chuan Hao; Renyuan Li; Feng Chang; Yuan...
+**Relevance:** 4/5 — ClawGym directly addresses LLM-based agent development across the full lifecycle—training data synthesis, agent training via SFT and RL, and evaluation—making it squarely on-criterion for frontier agent infrastructure.
+**Depth:** 4/5 — The work provides concrete methodology (persona-driven data synthesis, hybrid verification, parallel RL pipeline), a substantial dataset (13.5K filtered tasks), trained models, and a calibrated benchmark (200 instances), demonstrating material contributions to agent training and evaluation.
+
 ### [Think it, Run it: Autonomous ML pipeline generation via self-healing multi-agent AI](https://arxiv.org/abs/2604.27096)
 **Source:** arxiv | **Authors:** Adela Bara; Gabriela Dobrita; Simona-Vasilica Oprea
 **Relevance:** 4/5 — Multi-agent LLM system for planning, tool use (microservice recommendation), and execution with error recovery directly addresses agent reasoning and deployment.
@@ -233,8 +308,23 @@ _High relevance and substantial depth — worth full attention._
 **Relevance:** 4/5 — Directly addresses LLM agent engineering methodology covering reasoning, tool orchestration, verification, and deployment with systematic design practices.
 **Depth:** 3/5 — Presents a structured methodology with stage-gated phases and artifact-driven design, but lacks detailed algorithmic innovation or comprehensive quantitative benchmarking across diverse agent tasks.
 
+### [Nemotron 3 Nano Omni: Efficient and Open Multimodal Intelligence](https://huggingface.co/papers/2604.24954)
+**Source:** hf_papers | **Authors:** NVIDIA; Amala Sanjay Deshmukh; Kateryna Chumachenko; Tuomas Rintamaki; Matthieu Le; Tyler Poon; Dani...
+**Relevance:** 4/5 — Frontier multimodal model with explicit agentic computer use capabilities and architectural innovations directly enabling agent reasoning over diverse modalities.
+**Depth:** 3/5 — Provides concrete methodology (multimodal token-reduction techniques, architecture advances, training recipes) and results across benchmarks including agentic tasks, though lacks detailed ablations or mechanistic analysis.
 
-## Worth knowing (15 items)
+### [FAMA: Failure-Aware Meta-Agentic Framework for Open-Source LLMs in Interactive Tool Use Environments](https://huggingface.co/papers/2604.25135)
+**Source:** hf_papers | **Authors:** Amir Saeidi; Venkatesh Mishra; Souradeep Mukhopadhyay; Gaowen Liu; Ali Payani; Jayanth Srinivasa; Ch...
+**Relevance:** 4/5 — Directly addresses LLM-based agent failure modes, tool use, and decision-making in interactive environments, which are core agent capabilities.
+**Depth:** 3/5 — Presents a clear methodology (failure analysis + orchestration of specialized agents) with concrete experimental results (27% improvement), though the contribution is more of a practical engineering pattern than a fundamental capability advance.
+
+### [AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery](https://huggingface.co/papers/2604.25256)
+**Source:** hf_papers | **Authors:** Lei Xiong; Kun Luo; Ziyi Xia; Wenbo Zhang; Jin-Ge Yao; Zheng Liu; Jingying Shao; Jianlyu Chen; Hongj...
+**Relevance:** 4/5 — Directly addresses LLM-based agent evaluation through a specialized benchmark measuring reasoning, planning, and tool use in scientific literature discovery tasks.
+**Depth:** 3/5 — Provides concrete evaluation methodology and results (9.39% and 9.31% accuracy on task types) but focuses primarily on benchmark design rather than advancing agent architecture or capability mechanisms.
+
+
+## Worth knowing (20 items)
 
 _On-criterion but lower depth, or peripheral relevance._
 
@@ -242,6 +332,11 @@ _On-criterion but lower depth, or peripheral relevance._
 **Source:** arxiv | **Authors:** Fangming Cui; Ruixiao Zhu; Cheng Fang; Sunan Li; Jiahong Li
 **Relevance:** 4/5 — Directly addresses LLM-based agents with focus on RL integration, goal-setting, planning, reasoning, and decision-making—core frontier agent capabilities.
 **Depth:** 2/5 — Appears to be a position/survey paper outlining conceptual foundations and challenges rather than presenting concrete methodology, novel mechanisms, or quantitative results.
+
+### [Olmo Hybrid and future LLM architectures](https://www.interconnects.ai/p/olmo-hybrid-and-future-llm-architectures)
+**Source:** interconnects | **Authors:** Nathan Lambert
+**Relevance:** 4/5 — Hybrid LLM architectures (mixing attention with RNNs/Gated DeltaNet) directly affect model capabilities and efficiency that enable agent reasoning and deployment, representing a frontier architectural shift.
+**Depth:** 2/5 — The piece provides historical context and overview of hybrid model adoption but lacks concrete methodology details, benchmark results, or rigorous evaluation of how these architectural choices impact agent-relevant capabilities like reasoning or tool use.
 
 ### [When Roles Fail: Epistemic Constraints on Advocate Role Fidelity in LLM-Based Political Statement Analysis](https://arxiv.org/abs/2604.27228)
 **Source:** arxiv | **Authors:** Juergen Dietrich
@@ -257,6 +352,16 @@ _On-criterion but lower depth, or peripheral relevance._
 **Source:** arxiv | **Authors:** Ahan Gupta; Zhihao Wang; Neel Dani; Masahiro Tanaka; Olatunji Ruwase; Minjia Zhang
 **Relevance:** 3/5 — Long-context training infrastructure is adjacent to agent capabilities but not directly about LLM agents, reasoning, planning, or tool use—it's a training optimization that enables longer context windows which agents could leverage.
 **Depth:** 4/5 — The work provides concrete methodology (compiler-based sequence parallelism and activation checkpointing), quantitative results (2.7× context increase on NVIDIA), and addresses a clear limitation of existing training libraries, demonstrating solid systems contribution.
+
+### [Safety Drift After Fine-Tuning: Evidence from High-Stakes Domains](https://huggingface.co/papers/2604.24902)
+**Source:** hf_papers | **Authors:** Emaan Bilal Khan; Amy Winecoff; Miranda Bogen; Dylan Hadfield-Menell
+**Relevance:** 3/5 — Safety drift in fine-tuned models is relevant to agent deployment but focuses on base model adaptation rather than agent-specific reasoning, planning, or tool-use capabilities.
+**Depth:** 4/5 — Provides rigorous empirical methodology (100 models across domains), concrete safety benchmark results, and explicit identification of limitations in current governance that materially affect downstream model safety—key for deployment contexts.
+
+### [Intern-Atlas: A Methodological Evolution Graph as Research Infrastructure for AI Scientists](https://huggingface.co/papers/2604.28158)
+**Source:** hf_papers | **Authors:** Yujun Wu; Dongxu Zhang; Xinchen Li; Jinhang Xu; Yiling Duan; Yumou Liu; Jiabao Pan; Xuanhe Zhou; Jin...
+**Relevance:** 3/5 — Directly targets infrastructure for AI research agents to consume scientific knowledge and reconstruct methodological evolution, which is a supporting capability for agent-based scientific discovery rather than core agent reasoning or frontier model capabilities.
+**Depth:** 4/5 — Presents concrete methodology (graph construction from 1M+ papers, temporal tree search algorithm, typing of 9.4M edges) with evaluation against ground-truth chains and demonstrated downstream applications, though focused on infrastructure rather than agent mechanisms themselves.
 
 ### [TRUST: A Framework for Decentralized AI Service v.0.1](https://arxiv.org/abs/2604.27132)
 **Source:** arxiv | **Authors:** Yu-Chao Huang; Zhen Tan; Mohan Zhang; Pingzhi Li; Zhuo Zhang; Tianlong Chen
@@ -307,6 +412,16 @@ _On-criterion but lower depth, or peripheral relevance._
 **Source:** arxiv | **Authors:** Junbo Cui; Bokai Xu; Chongyi Wang; Tianyu Yu; Weiyue Sun; Yingjing Xu; Tianran Wang; Zhihui He; Wens...
 **Relevance:** 3/5 — The work addresses frontier multimodal model capabilities (real-time streaming, proactive behavior) that materially expand what LLM-based agents can do, but focuses on interaction architecture rather than agent reasoning/planning directly.
 **Depth:** 3/5 — Presents a concrete technical contribution (Omni-Flow framework for full-duplex alignment) with comparative benchmarks and efficiency claims, though the paper appears to emphasize capability demonstration over detailed methodology exposition.
+
+### [FlashRT: Towards Computationally and Memory Efficient Red-Teaming for Prompt Injection and Knowledge Corruption](https://huggingface.co/papers/2604.28157)
+**Source:** hf_papers | **Authors:** Yanting Wang; Chenlong Yin; Ying Chen; Jinyuan Jia
+**Relevance:** 3/5 — Directly addresses security evaluation of long-context LLMs used in agents and RAG systems, but focuses on red-teaming methodology rather than agent capabilities or frontier model advances.
+**Depth:** 3/5 — Provides solid technical methodology (optimization techniques for efficient attacks) and concrete benchmarks (2-7x speedup, 2-4x memory reduction), but is primarily an engineering contribution to evaluation rather than advancing core agent or model capabilities.
+
+### [Reading today's open-closed performance gap](https://www.interconnects.ai/p/reading-todays-open-closed-performance)
+**Source:** interconnects | **Authors:** Nathan Lambert
+**Relevance:** 3/5 — Discusses agentic benchmarking and model evaluation gaps that affect agent capability assessment, but is primarily a meta-analysis of benchmarking dynamics rather than agent methodology or frontier capability work.
+**Depth:** 2/5 — Offers conceptual observations about benchmark-reality misalignment and mentions agentic benchmarks, but lacks concrete methodology, specific evaluation results, or technical insight into what makes agents work better.
 
 ### [Building Persona-Based Agents On Demand: Tailoring Multi-Agent Workflows to User Needs](https://arxiv.org/abs/2604.27882)
 **Source:** arxiv | **Authors:** Giuseppe Arbore; Andrea Sillano; Luigi De Russis
