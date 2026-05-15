@@ -1,10 +1,10 @@
-# AI digest — 2026-05-14
+# AI digest — 2026-05-15
 
 Rolling 7-day window. Generated automatically.
 
 ---
 
-## Read deeply (228 items)
+## Read deeply (258 items)
 
 _High relevance and substantial depth — worth full attention._
 
@@ -177,6 +177,31 @@ _High relevance and substantial depth — worth full attention._
 **Source:** arxiv | **Authors:** Coleman Hooper; Minwoo Kang; Suhong Moon; Nicholas Lee; Eric Wen; John Wawrzynek; Michael W. Mahoney...
 **Relevance:** 5/5 — Directly addresses LLM-based agent deployment with concrete methodology for tool calling, reasoning, and real-time interaction—core frontier agent capabilities.
 **Depth:** 4/5 — Presents two novel mechanisms (Asynchronous I/O, Speculative Tool Calling), clock-based training methodology, synthetic data generation strategy, and quantified speedup results (1.3-2.2×) across multiple benchmarks with both cloud and edge models.
+
+### [EvolveMem:Self-Evolving Memory Architecture via AutoResearch for LLM Agents](https://arxiv.org/abs/2605.13941)
+**Source:** arxiv | **Authors:** Jiaqi Liu; Xinyu Ye; Peng Xia; Zeyu Zheng; Cihang Xie; Mingyu Ding; Huaxiu Yao
+**Relevance:** 5/5 — Directly addresses LLM-based agent memory systems with a novel self-evolving architecture that improves core agent capabilities (long-term reasoning, retrieval) through autonomous optimization.
+**Depth:** 4/5 — Provides clear methodology (closed-loop self-evolution via LLM diagnosis module with safeguards), concrete benchmark results (25.7% and 18.9% improvements on LoCoMo and MemBench), and demonstrates transfer learning insights across benchmarks.
+
+### [Test-Time Learning with an Evolving Library](https://arxiv.org/abs/2605.14477)
+**Source:** arxiv | **Authors:** Weijia Xu; Alessandro Sordoni; Chandan Singh; Zelalem Gero; Michel Galley; Xingdi Yuan; Jianfeng Gao
+**Relevance:** 5/5 — Directly addresses LLM-based agent capabilities through test-time learning, knowledge accumulation, and multi-turn agentic reasoning without parameter updates.
+**Depth:** 4/5 — Presents concrete methodology (weighting/consolidation mechanisms for evolving knowledge libraries) and benchmarked results across mathematical reasoning, code generation, and multi-turn agentic tasks.
+
+### [Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy](https://arxiv.org/abs/2605.14558)
+**Source:** arxiv | **Authors:** Langzhou He; Junyou Zhu; Yue Zhou; Zhengyao Gu; Junhua Liu; Wei-Chieh Huang; Henry Peng Zou; David W...
+**Relevance:** 5/5 — Directly addresses training methods for LLM-based agents via reinforcement learning, focusing on credit assignment mechanisms that materially affect agent policy optimization.
+**Depth:** 4/5 — Provides clear methodology (token reweighting via energy-based modeling), concrete empirical results (65.2 pp gains over PPO/GRPO), and identifies a specific limitation of uniform credit assignment in multi-turn agentic trajectories.
+
+### [Self-Distilled Agentic Reinforcement Learning](https://arxiv.org/abs/2605.15155)
+**Source:** arxiv | **Authors:** Zhengxi Lu; Zhiyuan Yao; Zhuowen Han; Zi-Han Wang; Jinyang Wu; Qi Gu; Xunliang Cai; Weiming Lu; Jun ...
+**Relevance:** 5/5 — Directly addresses post-training of LLM-based agents via RL, with novel methodology for improving trajectory-level supervision in multi-turn agentic interaction.
+**Depth:** 4/5 — Presents clear technical methodology (gated auxiliary objective combining OPSD and RL) with concrete empirical results across three benchmarks showing substantial improvements over baselines.
+
+### [Auditing Agent Harness Safety](https://arxiv.org/abs/2605.14271)
+**Source:** arxiv | **Authors:** Chengzhi Liu; Yichen Guo; Yepeng Liu; Yuzhe Yang; Qianqi Yan; Xuandong Zhao; Wenyue Hua; Sheng Liu; ...
+**Relevance:** 5/5 — Directly addresses safety and evaluation of LLM-based agent execution harnesses, a critical infrastructure component for multi-agent systems that materially affects what agents can safely do.
+**Depth:** 4/5 — Provides concrete methodology (HarnessAudit framework for trajectory auditing), a substantial benchmark (210 tasks across 8 domains in single/multi-agent configurations), and empirical results revealing misalignment between task completion and safe execution across frontier models.
 
 ### [How LLMs Are Persuaded: A Few Attention Heads, Rerouted](https://arxiv.org/abs/2605.09314)
 **Source:** arxiv | **Authors:** Xiangkun Sun; Lingkai Kong; Aoqi Zhang; Liang Zeng; Tonghan Wang
@@ -1038,6 +1063,111 @@ _High relevance and substantial depth — worth full attention._
 **Relevance:** 4/5 — LLM distillation via reinforcement learning is a frontier capability training method that directly affects what student models can do, enabling more capable and efficient agents.
 **Depth:** 4/5 — The paper provides clear methodology (TGPO algorithm with dense directional guidance), identifies concrete limitations of prior work (RKL failure under distribution divergence), and demonstrates empirical results on reasoning benchmarks.
 
+### [Collider-Bench: Benchmarking AI Agents with Particle Physics Analysis Reproduction](https://arxiv.org/abs/2605.13950)
+**Source:** arxiv | **Authors:** Darius A. Faroughy; Sofia Palacios Schweitzer; Ian Pang; Siddharth Mishra-Sharma; David Shih
+**Relevance:** 4/5 — Directly evaluates LLM-based agents on long-horizon tool-use tasks with methodology for benchmarking agent capabilities, reasoning, and error detection.
+**Depth:** 4/5 — Provides concrete evaluation framework with continuous fidelity metrics, computational cost tracking, LLM-based qualitative failure detection, and empirical results across agent capability levels.
+
+### [Self-Pruned Key-Value Attention: Learning When to Write by Predicting Future Utility](https://arxiv.org/abs/2605.14037)
+**Source:** arxiv | **Authors:** Gergely Szilvasy (Meta FAIR); Manuel Faysse (Meta FAIR; MICS; CentraleSup\'elec); Maria Lomeli (Meta...
+**Relevance:** 4/5 — Directly addresses a frontier capability constraint (KV-cache efficiency) that materially affects what LLM agents can do—enabling longer context and faster inference for agentic use cases.
+**Depth:** 4/5 — Presents clear methodology (lightweight utility predictor, joint end-to-end training, dynamic sparsification), concrete results (3-10× KV cache reduction with minimal performance loss), and reveals structured sparsity patterns for architectural guidance.
+
+### [Reinforcement Learning for Tool-Calling Agents in Fast Healthcare Interoperability Resources (FHIR)](https://arxiv.org/abs/2605.14126)
+**Source:** arxiv | **Authors:** Marius S. Knorr; Robert M\"uller; Jan P. Bremer; Nils Schweingruber
+**Relevance:** 4/5 — Directly addresses LLM-based agent reasoning and tool use through reinforcement learning post-training on structured graph reasoning tasks, a frontier capability for agent improvement.
+**Depth:** 4/5 — Provides concrete methodology (RL harness, LLM Judge rewards, CodeAct agent design) and empirical results (50% → 77% accuracy improvement on FHIR-AgentBench) with explicit problem formulation addressing tool-selection and constraint-violation failures in prior agents.
+
+### [LLMs Know When They Know, but Do Not Act on It: A Metacognitive Harness for Test-time Scaling](https://arxiv.org/abs/2605.14186)
+**Source:** arxiv | **Authors:** Qi Cao; Yufan Wang; Peijia Qin; Shuhao Zhang; Pengtao Xie
+**Relevance:** 4/5 — Directly addresses LLM agent reasoning and control through metacognitive mechanisms that enable adaptive test-time scaling, a frontier capability for improving agent decision-making.
+**Depth:** 4/5 — Provides explicit methodology (separating monitoring from reasoning, FOK/JOL control harness) with concrete benchmark results (48.3→56.9 accuracy improvement, leaderboard positions) and demonstrates how latent model capabilities can be operationalized for agent control.
+
+### [How to Scale Mixture-of-Experts: From muP to the Maximally Scale-Stable Parameterization](https://arxiv.org/abs/2605.14200)
+**Source:** arxiv | **Authors:** Leena Chennuru Vankadara; Moritz Haas; Luke Hayward; Sebastian Bordt; Alessandro Breccia
+**Relevance:** 4/5 — MoE architectures are central to frontier LLMs that power modern agents; principled scaling theory directly affects what model capabilities emerge and thus what agents can accomplish.
+**Depth:** 4/5 — Rigorous theoretical framework (DMFT) with novel parameterization (MSSP), systematic analysis across three scaling regimes, and experimental validation of learning-rate transfer and monotonic improvement at scale.
+
+### [Diagnosing Training Inference Mismatch in LLM Reinforcement Learning](https://arxiv.org/abs/2605.14220)
+**Source:** arxiv | **Authors:** Tianle Zhong; Neiwen Ling; Yifan Pi; Zijun Wei; Tianshu Yu; Geoffrey Fox; Peng Wu; Xiao Yu
+**Relevance:** 4/5 — Directly addresses a systems-level challenge in LLM RL training that affects agent policy optimization stability, which is core to frontier agent capabilities.
+**Depth:** 4/5 — Provides rigorous methodology (VeXact diagnostic framework) to isolate TIM from confounding factors, quantifies its impact on training collapse, and identifies concrete remedies with theoretical grounding.
+
+### [Latency-Quality Routing for Functionally Equivalent Tools in LLM Agents](https://arxiv.org/abs/2605.14241)
+**Source:** arxiv | **Authors:** Kexin Chu; Dawei Xiang; Wei Zhang
+**Relevance:** 4/5 — Directly addresses a core agent infrastructure problem—routing tool calls to functionally equivalent providers—with methodology and concrete benchmark improvements.
+**Depth:** 4/5 — Presents a novel contextual bandit approach (latency-quality matching) with clear design rationale, online adaptation mechanism, and substantial empirical gains (+2–18 pp across three benchmarks).
+
+### [Beyond Binary: Reframing GUI Critique as Continuous Semantic Alignment](https://arxiv.org/abs/2605.14311)
+**Source:** arxiv | **Authors:** Yuchen Sun; Pei Fu; Shaojie Zhang; Anan Du; Xiuwen Xi; Ruoceng Zhang; Zhenbo Luo; Jian Luan; Chongya...
+**Relevance:** 4/5 — Directly addresses critic model design for GUI agents within the test-time scaling paradigm, a core capability enabler for LLM-based agents.
+**Depth:** 4/5 — Provides clear methodology (two-stage contrastive learning, affordance space alignment), identifies structural defects in prior work, and demonstrates concrete experimental improvements with zero-shot transferability analysis.
+
+### [FrontierSmith: Synthesizing Open-Ended Coding Problems at Scale](https://arxiv.org/abs/2605.14445)
+**Source:** arxiv | **Authors:** Runyuan He; Qiuyang Mang; Shang Zhou; Kaiyuan Liu; Hanchen Li; Huanzhi Mao; Qizheng Zhang; Zerui Li;...
+**Relevance:** 4/5 — Directly addresses training methodology for LLM-based agents to improve their reasoning and planning on complex, open-ended problems—a frontier capability that enables better agent performance.
+**Depth:** 4/5 — Provides concrete methodology (problem synthesis pipeline with divergence metrics, test case generation) and substantial empirical results (8-12 point improvements on benchmarks) with clear ablation on agent behavior (turn count, token use).
+
+### [LiSA: Lifelong Safety Adaptation via Conservative Policy Induction](https://arxiv.org/abs/2605.14454)
+**Source:** arxiv | **Authors:** Minbeom Kim; Lesly Miculicich; Bhavana Dalvi Mishra; Mihir Parmar; Phillip Wallis; Bharath Chandrase...
+**Relevance:** 4/5 — Directly addresses safety and guardrails for LLM-based agents in real-world deployment scenarios with tool use and multi-step workflows, a frontier capability concern.
+**Depth:** 4/5 — Provides concrete methodology (conservative policy induction, conflict-aware rules, evidence-aware confidence gating) with evaluation across three benchmarks showing robustness under sparse and noisy feedback.
+
+### [Silent Collapse in Recursive Learning Systems](https://arxiv.org/abs/2605.14588)
+**Source:** arxiv | **Authors:** Zhipeng Zhang
+**Relevance:** 4/5 — Directly addresses a critical failure mode in recursive LLM training pipelines used by autonomous agents and self-improving systems, with clear implications for agent reliability and deployment.
+**Depth:** 4/5 — Provides concrete methodology (three measurable precursor signals), a novel framework (MTR) with mechanistic explanation, and trajectory-level analysis of internal model degradation across multiple generations.
+
+### [Learning from Language Feedback via Variational Policy Distillation](https://arxiv.org/abs/2605.15113)
+**Source:** arxiv | **Authors:** Yang Li; Erik Nijkamp; Semih Yavuz; Shafiq Rayhan Joty
+**Relevance:** 4/5 — Directly addresses a core agent capability—learning from language feedback to improve reasoning and planning—using RL methods that enhance how agents extract actionable signals from natural language critique.
+**Depth:** 4/5 — Proposes a novel Variational EM framework with explicit methodology (adaptive teacher refinement, M/E-step mechanics) and concrete evaluation across scientific reasoning and code generation with comparative baselines and stress tests.
+
+### [FutureSim: Replaying World Events to Evaluate Adaptive Agents](https://arxiv.org/abs/2605.15188)
+**Source:** arxiv | **Authors:** Shashwat Goel; Nikhil Chandak; Arvindh Arun; Ameya Prabhu; Steffen Staab; Moritz Hardt; Maksym Andri...
+**Relevance:** 4/5 — Directly addresses evaluation of LLM-based agents' adaptive reasoning and planning capabilities in realistic, long-horizon scenarios with concrete methodology and results.
+**Depth:** 4/5 — Provides systematic benchmark design with ablations studying adaptation mechanisms (memory, reasoning, search), frontier model evaluations with specific accuracy metrics, and identifies clear capability gaps motivating future research.
+
+### [Distribution Corrected Offline Data Distillation for Large Language Models](https://arxiv.org/abs/2605.14071)
+**Source:** arxiv | **Authors:** Yumeng Zhang; Zhengbang Yang; Yevin Nikhel Goonatilake; Zhuangdi Zhu
+**Relevance:** 4/5 — Directly addresses a frontier capability problem—training smaller LLMs via distillation—that materially affects what resource-constrained agents can do, with explicit methodology solving distributional drift in reasoning tasks.
+**Depth:** 4/5 — Presents a principled offline distillation framework with clear technical contribution (distribution correction via adaptive weighting), concrete benchmarks (GSM8K, MATH, AMC, AIME, OlympiadBench), and explicit comparison against prior offline methods.
+
+### [Why Retrieval-Augmented Generation Fails: A Graph Perspective](https://arxiv.org/abs/2605.14192)
+**Source:** arxiv | **Authors:** Kai Guo; Xinnan Dai; Zhibo Zhang; Nuohan Lin; Shenglai Zeng; Jie Ren; Haoyu Han; Jiliang Tang
+**Relevance:** 4/5 — RAG is a critical capability for LLM-based agents, and this work directly addresses how agents integrate external evidence—a fundamental mechanism for grounded reasoning and tool use.
+**Depth:** 4/5 — The paper provides substantial mechanistic insight via circuit tracing and attribution graphs, identifies structural differences between correct and failed reasoning paths, and proposes both a detection framework and targeted interventions with concrete results.
+
+### [Agentic Recommender System with Hierarchical Belief-State Memory](https://arxiv.org/abs/2605.14401)
+**Source:** arxiv | **Authors:** Xiang Shen; Yuhang Zhou; Yifan Wu; Zhuokai Zhao; Siyu Lin; Lei Huang; Qianqian Zhong; Lizhu Zhang; B...
+**Relevance:** 4/5 — Directly addresses LLM-based agent memory architecture and planning mechanisms for a concrete application (recommendation), with clear methodology for belief-state management and agentic scheduling.
+**Depth:** 4/5 — Provides substantial methodological contribution with hierarchical memory tiers, a complete six-operation lifecycle explicitly scheduled by LLM planning, and demonstrates concrete improvements (26.4% HR@1, 10.3% NDCG@10) on benchmark evaluation.
+
+### [Does RAG Know When Retrieval Is Wrong? Diagnosing Context Compliance under Knowledge Conflict](https://arxiv.org/abs/2605.14473)
+**Source:** arxiv | **Authors:** Yihang Chen; Pin Qian; Su Wang; Sipeng Zhang; Huan Xu; Shuhuai Lin; Xinpeng Wei
+**Relevance:** 4/5 — RAG is a critical capability for LLM agents; this work directly addresses how agents misuse retrieved context when it conflicts with parametric knowledge, a core reliability issue for agent deployment.
+**Depth:** 4/5 — The paper introduces Context-Driven Decomposition as a principled intervention mechanism with extensive empirical validation across multiple model families and stress-test regimes, revealing structural patterns in context compliance that distinguish it from prior robustness work.
+
+### [GroupMemBench: Benchmarking LLM Agent Memory in Multi-Party Conversations](https://arxiv.org/abs/2605.14498)
+**Source:** arxiv | **Authors:** Jingbo Yang; Kwei-Herng Lai; Xiaowen Wang; Shiyu Chang; Yaar Harari; Evgeniy Gabrilovich
+**Relevance:** 4/5 — Directly addresses LLM-agent memory systems, a core capability enabling deployment as multi-user assistants, with methodology for benchmarking and concrete performance measurements.
+**Depth:** 4/5 — Provides substantial methodological contribution (graph-grounded synthesis pipeline, adversarial query generation) and concrete benchmark results exposing critical failures in current memory systems (46% accuracy, 27.1% on knowledge update).
+
+### [Learning from Failures: Correction-Oriented Policy Optimization with Verifiable Rewards](https://arxiv.org/abs/2605.14539)
+**Source:** arxiv | **Authors:** Mengjie Ren; Jie Lou; Boxi Cao; Xueru Wen; Hongyu Lin; Xianpei Han; Le Sun; Xing Yu; Yaojie Lu
+**Relevance:** 4/5 — Directly addresses LLM reasoning and tool-use capability improvement through a verifiable reward training method, which is central to frontier LLM-based agent capabilities.
+**Depth:** 4/5 — Provides clear methodology (correction-oriented supervision from failed trajectories), concrete experimental results across 11 benchmarks with pass@K metrics, and addresses a specific limitation of sparse credit assignment in RLVR.
+
+### [EndPrompt: Efficient Long-Context Extension via Terminal Anchoring](https://arxiv.org/abs/2605.14589)
+**Source:** arxiv | **Authors:** Han Tian; Luxuan Chen; Xinran Chen; Rui Kong; Fang Wang; Jiamin Chen; Jinman Zhao; Yuchen Li; Jiashu...
+**Relevance:** 4/5 — Context window extension is a frontier capability directly enabling agent reasoning, planning, and memory—core LLM agent competencies.
+**Depth:** 4/5 — Strong methodology with theoretical grounding (RoPE analysis, Bernstein inequality), comprehensive benchmarks (RULER, LongBench), and concrete efficiency gains over prior work.
+
+### [Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining](https://arxiv.org/abs/2605.14747)
+**Source:** arxiv | **Authors:** Weimin Xiong; Shuhao Gu; Bowen Ye; Zihao Yue; Lei Li; Feifan Song; Sujian Li; Hao Tian
+**Relevance:** 4/5 — Directly addresses LLM-based GUI agents through large-scale pretraining data synthesis and multimodal model capability improvements for agent generalization.
+**Depth:** 4/5 — Provides clear methodology (coarse-to-fine filtering pipeline, video-to-trajectory extraction) and concrete results (12M trajectories, 5-20% benchmark improvements across grounding/action tasks).
+
 ### [GraphDC: A Divide-and-Conquer Multi-Agent System for Scalable Graph Algorithm Reasoning](https://arxiv.org/abs/2605.06671)
 **Source:** arxiv | **Authors:** Wenjin Li; Jiaming Cui
 **Relevance:** 4/5 — Directly addresses LLM-based multi-agent reasoning with a concrete hierarchical architecture (Divide-and-Conquer) designed to enhance agent capabilities on complex reasoning tasks.
@@ -1148,8 +1278,28 @@ _High relevance and substantial depth — worth full attention._
 **Relevance:** 4/5 — Directly addresses agent behavior interpretation and oversight, which is critical infrastructure for understanding and improving LLM-based agents at runtime.
 **Depth:** 3/5 — Provides a structured taxonomy methodology (3-level hierarchy with 176 categories) and an automated analysis pipeline with concrete experimental results comparing agent behavioral profiles, though the contribution is primarily organizational/analytical rather than revealing new agent capabilities or mechanisms.
 
+### [Minimal-Intervention KV Retention: A Design-Space Study and a Diversity-Penalty Survivor](https://arxiv.org/abs/2605.14292)
+**Source:** arxiv | **Authors:** Libo Sun; Po-wei Harn; Peixiong He; Xiao Qin
+**Relevance:** 4/5 — KV-cache compression directly enables longer-context reasoning in LLM agents and affects what long-horizon tasks they can perform; this work systematically studies the design space and proposes a novel scoring mechanism with rigorous evaluation.
+**Depth:** 3/5 — The paper provides clear methodology (matched-memory comparison, pre-registered protocol, held-out evaluation) and concrete results (Bonferroni-corrected significance on specific model-budget cells), but the contribution is a localized scoring function improvement rather than a fundamental advance in agent reasoning or capability emergence.
 
-## Worth knowing (71 items)
+### [InfoSFT: Learn More and Forget Less with Information-Aware Token Weighting](https://arxiv.org/abs/2605.14967)
+**Source:** arxiv | **Authors:** Mahdi Sabbaghi; George Pappas; Adel Javanmard; Hamed Hassani
+**Relevance:** 4/5 — SFT and instruction-following are foundational to agent capability development, and this work directly addresses how to train models to learn new behaviors while preserving prior knowledge—both critical for capable agents.
+**Depth:** 3/5 — The paper presents a principled methodology (information-aware token weighting) with concrete benchmarks across math, code, and reasoning tasks, but the contribution is a focused loss-weighting improvement rather than a breakthrough in agent architectures or capabilities.
+
+### [Boosting Reinforcement Learning with Verifiable Rewards via Randomly Selected Few-Shot Guidance](https://arxiv.org/abs/2605.15012)
+**Source:** arxiv | **Authors:** Kai Yan; Alexander G. Schwing; Yu-Xiong Wang
+**Relevance:** 4/5 — Directly addresses training methods for LLM-based agents performing reasoning tasks (math, coding) via reinforcement learning with verifiable rewards, a frontier capability for agent reasoning.
+**Depth:** 3/5 — Proposes FEST with clear methodology (combining supervised, on-policy, and regularization signals) and provides concrete benchmark results demonstrating sample efficiency gains, though the contribution is somewhat incremental over prior demonstration-guided RL work.
+
+### [BOOKMARKS: Efficient Active Storyline Memory for Role-playing](https://arxiv.org/abs/2605.14169)
+**Source:** arxiv | **Authors:** Letian Peng; Ziche Liu; Yiming Huang; Longfei Yun; Kun Zhou; Yupeng Hou; Jingbo Shang
+**Relevance:** 4/5 — Directly addresses memory systems for LLM-based role-playing agents, a core capability that enables long-horizon consistency and agent reasoning.
+**Depth:** 3/5 — Presents a concrete methodology (search-based bookmark framework with synchronization mechanisms) and demonstrates results on 85 characters across 16 artifacts, though focused on a specific application domain rather than frontier model capabilities.
+
+
+## Worth knowing (84 items)
 
 _On-criterion but lower depth, or peripheral relevance._
 
@@ -1328,6 +1478,51 @@ _On-criterion but lower depth, or peripheral relevance._
 **Relevance:** 3/5 — Calibration and confidence estimation are important for reliable LLM-based agents, but this work focuses on model introspection rather than agent architectures, reasoning, planning, or frontier capability emergence.
 **Depth:** 4/5 — The paper presents solid methodology (calibration-aware representation learning with kernel smoothing), comprehensive evaluation across twelve LLMs and four benchmarks, and actionable results (local confidence correction), though the contribution is primarily in diagnostics rather than enabling new agent capabilities.
 
+### [PreFT: Prefill-only finetuning for efficient inference](https://arxiv.org/abs/2605.14217)
+**Source:** arxiv | **Authors:** Andrew Lanpouthakoun; Aryaman Arora; Zhengxuan Wu; Dhruv Pai; Ben Keigwin; Dan Jurafsky; Christopher...
+**Relevance:** 3/5 — On-topic as an inference optimization for personalized LLM serving, but tangential to core agent capabilities—focuses on deployment efficiency rather than agent reasoning, planning, or tool use.
+**Depth:** 4/5 — Solid methodology with clear technical motivation (prefill vs. decode mismatch), concrete empirical results (1.9× throughput improvement, performance tradeoffs), and an efficient implementation released on vLLM.
+
+### [Dynamics of the Transformer Residual Stream: Coupling Spectral Geometry to Network Topology](https://arxiv.org/abs/2605.14258)
+**Source:** arxiv | **Authors:** Jesseba Fernando; Grigori Guitchounts
+**Relevance:** 3/5 — Provides mechanistic understanding of how LLM internals process information through depth, which is foundational for predicting agent reasoning capabilities, but is not directly about agent construction or deployment.
+**Depth:** 4/5 — Rigorous methodology (full Jacobian eigendecomposition across production-scale models) with concrete empirical results (spectral gradients, low-rank bottlenecks, topological coupling) that reveal learned structure and offer mechanistic insight into LLM computation.
+
+### [Exemplar Partitioning for Mechanistic Interpretability](https://arxiv.org/abs/2605.14347)
+**Source:** arxiv | **Authors:** Jessica Rumbelow
+**Relevance:** 3/5 — Mechanistic interpretability of LLM activations is adjacent to agent capabilities but not directly about agent reasoning, planning, tool use, or deployment.
+**Depth:** 4/5 — The work presents novel methodology (Exemplar Partitioning via leader-clustering), concrete benchmarks (0.881 AUROC on AxBench, 97% probe accuracy), and explicit comparisons to SAE baselines with significant computational efficiency gains.
+
+### [When Answers Stray from Questions: Hallucination Detection via Question-Answer Orthogonal Decomposition](https://arxiv.org/abs/2605.14449)
+**Source:** arxiv | **Authors:** Siyang Yao; Erhu Feng; Yubin Xia
+**Relevance:** 3/5 — Hallucination detection is a critical safety and reliability concern for LLM agents, but this work addresses detection methodology rather than agent-specific architectures, planning, or tool use.
+**Depth:** 4/5 — QAOD presents a clear methodology (orthogonal decomposition with layer/neuron selection) and strong empirical results (up to 21% OOD improvement), addressing both in-domain and cross-domain generalization.
+
+### [XFP: Quality-Targeted Adaptive Codebook Quantization with Sparse Outlier Separation for LLM Inference](https://arxiv.org/abs/2605.14844)
+**Source:** arxiv | **Authors:** Thomas Witt
+**Relevance:** 3/5 — LLM inference optimization is adjacent to agent deployment but not central to agent reasoning, planning, or tool use—it affects throughput/cost for running agents rather than agent capabilities themselves.
+**Depth:** 4/5 — Solid technical contribution with clear methodology (quality-targeted quantization, H-Process search, sparse outlier separation), concrete benchmarks (tok/s, GSM8K accuracy across model scales), and explicit constraints driving the design.
+
+### [An Interpretable Latency Model for Speculative Decoding in LLM Serving](https://arxiv.org/abs/2605.15051)
+**Source:** arxiv | **Authors:** Linghao Kong; Megan Flynn; Michael Peng; Nir Shavit; Mark Kurtz; Alexandre Marques
+**Relevance:** 3/5 — Speculative decoding is a frontier inference optimization that materially affects LLM agent deployment efficiency, but the work is primarily about serving systems and latency modeling rather than agent capabilities or reasoning mechanisms.
+**Depth:** 4/5 — The paper provides rigorous methodology (Little's Law decomposition, latency component analysis) and extensive empirical validation across vLLM with clear characterization of how SD parameters affect performance under load.
+
+### [TFGN: Task-Free, Replay-Free Continual Pre-Training Without Catastrophic Forgetting at LLM Scale](https://arxiv.org/abs/2605.15053)
+**Source:** arxiv | **Authors:** Anurup Ganguli
+**Relevance:** 3/5 — Continual pre-training architecture for LLMs improves model robustness and capability retention, relevant to agent deployment and capability stability, but not directly about agent reasoning, planning, or tool use.
+**Depth:** 4/5 — Rigorous architectural contribution with clear methodology (Read/Write decomposition), comprehensive multi-scale evaluation across six domains and three model sizes, and explicit measurements of backward/forward transfer and gradient orthogonality.
+
+### [Polar probe linearly decodes semantic structures from LLMs](https://arxiv.org/abs/2605.14125)
+**Source:** arxiv | **Authors:** Pablo J. Diego-Sim\'on; Pierre Orhan; Yair Lakretz; Jean-R\'emi King
+**Relevance:** 3/5 — Directly addresses how LLMs internally represent and structure semantic knowledge, which is foundational to understanding model capabilities that enable agent reasoning, but does not focus on agent behaviors, tool use, or deployment.
+**Depth:** 4/5 — Provides concrete methodology (Polar Probe technique), systematic evaluation across five domains with quantitative results (linear recoverability, layer emergence patterns, generalization bounds), and mechanistic insights into semantic binding via geometric principles.
+
+### [Uncertainty Quantification for Large Language Diffusion Models](https://arxiv.org/abs/2605.14570)
+**Source:** arxiv | **Authors:** Artem Vazhentsev; Vladislav Smirnov; David Li; Maxim Panov; Timothy Baldwin; Artem Shelmanov
+**Relevance:** 3/5 — Uncertainty quantification for LLMs directly supports safer agent deployment and reliable reasoning, but the work focuses on diffusion-based LLMs rather than the dominant autoregressive architectures that power frontier agents.
+**Depth:** 4/5 — The paper provides solid methodology (zero-shot UQ signals from denoising dynamics, theoretical bounds on trajectory dissimilarity) and comprehensive experimental validation across multiple tasks and models with concrete efficiency gains.
+
 ### [Uneven Evolution of Cognition Across Generations of Generative AI Models](https://arxiv.org/abs/2605.06815)
 **Source:** arxiv | **Authors:** Isaac Galatzer-Levy; Daniel McDuff; Xin Liu; Jed McGiffin
 **Relevance:** 3/5 — Evaluates frontier model cognitive capabilities through systematic benchmarking, which informs what agents can do, but focuses on static capability assessment rather than agent-specific reasoning, planning, or tool use.
@@ -1482,6 +1677,26 @@ _On-criterion but lower depth, or peripheral relevance._
 **Source:** arxiv | **Authors:** Ling-Qi Zhang; Kristin Branson
 **Relevance:** 3/5 — Directly evaluates LLM-based agents on a concrete task (data understanding and reformation) with methodology and error characterization, but neuroscience data reuse is domain-specific and not core to frontier agent capabilities research.
 **Depth:** 3/5 — Provides concrete benchmark results across eight papers, characterizes failure modes of coding agents, and identifies reliability issues with agents-as-judges, offering solid empirical contribution to understanding agent limitations in practice.
+
+### [Efficient Multi-objective Prompt Optimization via Pure-exploration Bandits](https://arxiv.org/abs/2605.14553)
+**Source:** arxiv | **Authors:** Donghao Li; Chengshuai Shi; Weijuan Ou; Cong Shen; Jing Yang
+**Relevance:** 3/5 — Prompt optimization is foundational to agent capability, but this work focuses on engineering methodology rather than agent systems, reasoning, planning, or model capabilities that enable agents.
+**Depth:** 3/5 — Solid methodological contribution (adapting multi-objective bandits theory with novel structured identification) and experimental validation across LLMs, but lacks agent-specific insights or capability emergence insights.
+
+### [Position: Behavioural Assurance Cannot Verify the Safety Claims Governance Now Demands](https://arxiv.org/abs/2605.15164)
+**Source:** arxiv | **Authors:** Pratinav Seth; Vinay Kumar Sankarapu
+**Relevance:** 3/5 — Addresses safety evaluation and governance of LLM-based systems with agentic behaviors, but is primarily a position paper on assurance limitations rather than advancing agent capabilities or core model methodology.
+**Depth:** 3/5 — Formalizes the audit gap concept and proposes mechanistic-evidence approaches (linear probes, activation patching), but lacks empirical validation, concrete case studies, or benchmark results demonstrating the proposed technical pivots.
+
+### [Derivation Prompting: A Logic-Based Method for Improving Retrieval-Augmented Generation](https://arxiv.org/abs/2605.14053)
+**Source:** arxiv | **Authors:** Ignacio Sastre; Guillermo Moncecchi; Aiala Ros\'a
+**Relevance:** 3/5 — Derivation Prompting addresses reasoning and control in RAG systems, which is relevant to agent capabilities, but focuses on a specific prompting technique rather than core agent architecture or frontier model capabilities.
+**Depth:** 3/5 — The paper provides methodology (derivation trees with rule-based constraints) and case study results showing improvement over baseline RAG, but the contribution is narrowly scoped to a prompting variant rather than a fundamental advance in reasoning or agent design.
+
+### [GradShield: Alignment Preserving Finetuning](https://arxiv.org/abs/2605.14194)
+**Source:** arxiv | **Authors:** Zhanhao Hu; Xiao Huang; Patrick Mendoza; Emad A. Alghamdi; Basel Alomair; Raluca Ada Popa; David Wag...
+**Relevance:** 3/5 — Alignment and safety during finetuning is relevant to frontier model capabilities and safety thresholds, but this work focuses on filtering harmful data rather than agent-specific capabilities or mechanisms that directly enable agent reasoning/planning.
+**Depth:** 3/5 — The paper presents a principled methodology (FIHS scoring + adaptive thresholding) with empirical evaluation across multiple tasks and metrics, demonstrating solid technical contribution, though it is narrowly scoped to data filtering rather than broader alignment or capability emergence questions.
 
 ### [AI-Care: A Conversational Agentic System for Task Coordination in Alzheimer's Disease Care](https://arxiv.org/abs/2605.08480)
 **Source:** arxiv | **Authors:** Preyash Yadav; Michelle Cohn; Priyanka Koppolu; Hritvik Agarwal; Amey Gohil; Tejas Patil; Sasha Pime...
