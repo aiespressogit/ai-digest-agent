@@ -1,4 +1,4 @@
-# AI digest — 2026-06-29
+# AI digest — 2026-06-30
 
 Rolling 7-day window. Generated automatically.
 
